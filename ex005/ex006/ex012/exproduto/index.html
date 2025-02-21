@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Preço do Produto</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 400px;
+            padding: 30px;
+            text-align: center;
+        }
+        h2 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        .input-container {
+            margin-bottom: 20px;
+        }
+        input[type="number"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            outline: none;
+        }
+        button {
+            background-color: #2196F3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #1976D2;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .aumento {
+            background-color: #e7f5e6;
+            color: #4CAF50;
+            border: 1px solid #4CAF50;
+        }
+        .desconto {
+            background-color: #f8d7da;
+            color: #d9534f;
+            border: 1px solid #d9534f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Preço Mudou?</h2>
+        <div class="input-container">
+            <label for="precoAntigo">Preço Anterior:</label><br>
+            <input type="number" id="precoAntigo" placeholder="Digite o preço anterior" required>
+        </div>
+        <div class="input-container">
+            <label for="precoAtual">Preço Atual:</label><br>
+            <input type="number" id="precoAtual" placeholder="Digite o preço atual" required>
+        </div>
+        <button onclick="verificarPreco()">Verificar</button>
+
+        <div id="resultado" class="result"></div>
+    </div>
+
+    <script>
+        function verificarPreco() {
+            // Obter os valores dos preços
+            let precoAntigo = parseFloat(document.getElementById('precoAntigo').value);
+            let precoAtual = parseFloat(document.getElementById('precoAtual').value);
+
+            // Verificar se os valores são válidos
+            if (isNaN(precoAntigo) || isNaN(precoAtual) || precoAntigo <= 0 || precoAtual <= 0) {
+                alert("Por favor, insira valores válidos para os preços.");
+                return;
+            }
+
+            // Calcular a diferença
+            let diferenca = precoAtual - precoAntigo;
+            let resultadoTexto = "";
+            let classeResultado = "";
+
+            if (diferenca > 0) {
+                resultadoTexto = `O preço aumentou em R$ ${diferenca.toFixed(2)}.`;
+                classeResultado = "aumento";
+            } else if (diferenca < 0) {
+                resultadoTexto = `O preço teve um desconto de R$ ${Math.abs(diferenca).toFixed(2)}.`;
+                classeResultado = "desconto";
+            } else {
+                resultadoTexto = "O preço não mudou.";
+                classeResultado = "";
+            }
+
+            // Exibir o resultado
+            let resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.textContent = resultadoTexto;
+            resultadoDiv.className = `result ${classeResultado}`;
+        }
+    </script>
+</body>
+</html>

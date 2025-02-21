@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhando com números</title>
+
+    <style>
+        body { font: 12pt Arial }
+        button { font-size: 12pt; padding: 30px; color: blue; background-color: yellow; }
+    </style>
+
+</head>
+<body>
+    <h1>Trabalhando com números</h1>
+    <button onclick="inicio()">Clique para Calcular!</button>
+
+    <script>
+        function inicio(){
+            // Pede o valor do usuário
+            let valor = window.prompt('Qual é o valor?');
+            
+            // Converte o valor para número
+            valor = parseFloat(valor);
+
+            // Verifica se o valor inserido é válido
+            if (!isNaN(valor)) {
+                let dobro = valor * 2;
+                let metade = valor / 2;
+
+                // Exibe o resultado
+                alert(`O valor informado foi: ${valor}\nO dobro de ${valor} é: ${dobro}\nA metade de ${valor} é: ${metade}`);
+            } else {
+                alert("Por favor, insira um número válido.");
+            }
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplos em JavaScript</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            text-align: center;
+        }
+        h2 {
+            color: #4CAF50;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        h3 {
+            color: #555;
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+        .result {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        .loop-output {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .loop-output div {
+            background-color: #2196F3;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+        }
+        .footer {
+            margin-top: 30px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <script>
+            // 1️⃣ Exibir uma Mensagem na Tela
+            document.write("<h2>Olá, Mundo!</h2>");
+
+            // 2️⃣ Soma de Dois Números
+            let numero1 = 5;
+            let numero2 = 7;
+            let soma = numero1 + numero2;
+            document.write("<h3>A soma de " + numero1 + " e " + numero2 + " é:</h3><div class='result'>" + soma + "</div>");
+
+            // 3️⃣ Verificar se um Número é Par ou Ímpar
+            let numero = 4;
+            if (numero % 2 === 0) {
+                document.write("<h3>" + numero + " é Par.</h3>");
+            } else {
+                document.write("<h3>" + numero + " é Ímpar.</h3>");
+            }
+
+            // 4️⃣ Contagem de 1 a 10 com Loop
+            document.write("<h3>Contagem de 1 a 10:</h3>");
+            document.write("<div class='loop-output'>");
+            for (let i = 1; i <= 10; i++) {
+                document.write("<div>" + i + "</div>");
+            }
+            document.write("</div>");
+
+            // 5️⃣ Função para Calcular o Quadrado de um Número
+            function calcularQuadrado(num) {
+                return num * num;
+            }
+
+            let numeroQuadrado = 3;
+            document.write("<h3>O quadrado de " + numeroQuadrado + " é:</h3><div class='result'>" + calcularQuadrado(numeroQuadrado) + "</div>");
+        </script>
+
+        <div class="footer">
+            <p>Desenvolvido com 💻 por [Seu Nome]</p>
+        </div>
+    </div>
+</body>
+</html>
